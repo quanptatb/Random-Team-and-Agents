@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Team Generator</title>
+    <meta name="description" content="Chia đội ngẫu nhiên cho 6 thành viên thành 2 team, mỗi team 3 người">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mode-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="title-icon">🎲</span>
+                Random Team
+            </h1>
+            <p class="subtitle">Chia đội ngẫu nhiên - 2 team x 3 người</p>
+        </header>
+
+        <section class="members-section">
+            <h2 class="section-title">Thành viên</h2>
+            <div class="members-grid" id="membersGrid">
+                <div class="member-card" data-member="Cua">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">C</div>
+                    <div class="member-name">Cua</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+                <div class="member-card" data-member="Hoàng">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">H</div>
+                    <div class="member-name">Hoàng</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+                <div class="member-card" data-member="Nẻo">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">N</div>
+                    <div class="member-name">Nẻo</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+                <div class="member-card" data-member="Hào">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">H</div>
+                    <div class="member-name">Hào</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+                <div class="member-card" data-member="Cáo">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">C</div>
+                    <div class="member-name">Cáo</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+                <div class="member-card" data-member="Linh">
+                    <input type="checkbox" class="member-checkbox" checked>
+                    <div class="member-avatar">L</div>
+                    <div class="member-name">Linh</div>
+                    <div class="agent-display"></div>
+                    <div class="member-actions">
+                        <button class="no-agent-btn" title="Không có tướng">❌</button>
+                        <button class="reset-agent-btn" title="Random lại tướng" style="display: none;">🔄</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mode-selection">
+            <h2 class="section-title">Chế độ</h2>
+            <div class="mode-options">
+                <label class="mode-option">
+                    <input type="radio" name="mode" value="6" checked>
+                    <span class="mode-label">
+                        <span class="mode-icon">👥</span>
+                        <span class="mode-text">6 người (2 team x 3)</span>
+                    </span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="mode" value="5">
+                    <span class="mode-label">
+                        <span class="mode-icon">🎮</span>
+                        <span class="mode-text">5 người (1 team)</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <button class="generate-btn" id="generateBtn">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">Chia đội ngẫu nhiên</span>
+            </button>
+        </div>
+
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h2 class="section-title">Kết quả</h2>
+            <div class="teams-container">
+                <div class="team-card team-1">
+                    <div class="team-header">
+                        <h3 class="team-title">Team 1</h3>
+                        <span class="team-icon">🔵</span>
+                    </div>
+                    <div class="team-members" id="team1Members"></div>
+                </div>
+                <div class="team-card team-2">
+                    <div class="team-header">
+                        <h3 class="team-title">Team 2</h3>
+                        <span class="team-icon">🔴</span>
+                    </div>
+                    <div class="team-members" id="team2Members"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

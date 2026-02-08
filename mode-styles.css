@@ -1,0 +1,65 @@
+/* Mode Selection Styles */
+.mode-selection {
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.mode-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mode-option {
+    flex: 1;
+    min-width: 250px;
+    cursor: pointer;
+}
+
+.mode-option input[type="radio"] {
+    display: none;
+}
+
+.mode-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.mode-icon {
+    font-size: 1.75rem;
+}
+
+.mode-option input[type="radio"]:checked+.mode-label {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    transform: translateY(-4px);
+}
+
+.mode-option:hover .mode-label {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .mode-options {
+        flex-direction: column;
+    }
+
+    .mode-option {
+        min-width: 100%;
+    }
+}
